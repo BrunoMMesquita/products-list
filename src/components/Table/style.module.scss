@@ -1,0 +1,47 @@
+.container {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 1.5rem;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        thead {
+            height: 2.5rem;
+            border-bottom: 1px solid var(--lavender);
+
+            tr {
+                th {
+                    text-align: left;
+                    padding: 1rem 0 1rem 0.5rem;
+                    position: relative;
+
+                    @media (max-width: 858px) {
+                        min-width: 100px;
+                    }
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                height: 67px;
+                border-bottom: 1px solid var(--lavender);
+
+                td {
+                    text-align: left;
+                    max-width: 22rem;
+                    padding: 0 1.5rem 0 0.5rem;
+                    min-width: 3rem;
+
+                    @media (max-width: 858px) {
+                        min-width: 6.25rem;
+                        padding: 1rem 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+}

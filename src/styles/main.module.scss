@@ -1,0 +1,23 @@
+.mainContainer {
+    height: 100vh;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+
+    table {
+        margin-top: 2rem;
+    }
+
+    .suggestions{
+        h2{
+            margin: 1rem;
+        }
+
+        button{
+            margin: 1rem;
+            background: var(--blue);
+        }
+    }
+}
