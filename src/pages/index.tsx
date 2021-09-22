@@ -4,6 +4,7 @@ import { getProducts } from "../services/product";
 import { Table } from "../components/Table";
 import styles from '../styles/main.module.scss';
 import { ISuggestion } from "../interfaces/suggestion";
+import { Loader } from "../components/Loader";
 
 const columns = [
   {
@@ -23,6 +24,7 @@ const columns = [
 export default function Home() {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [suggestions, setSuggestions] = useState<ISuggestion[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const inputEl = useRef(null);
 
@@ -41,6 +43,8 @@ export default function Home() {
   }
 
   const onSearch = async (productSearched: string) => {
+    setLoading(true);
+
     const res: any = await getProducts(productSearched);
 
     if (res) {
@@ -50,7 +54,12 @@ export default function Home() {
       if (res.suggestions && !!res.suggestions.length)
         setSuggestions(res.suggestions);
     }
+    
+    setLoading(false);
   };
+
+  if (loading)
+    return <Loader />
 
   return (
     <div className={styles.mainContainer}>
